@@ -43,8 +43,6 @@ The system follows a structured pipeline for detecting camouflaged objects in co
 * Corresponding **pixel-level ground truth masks** are used for supervised training  
 * Boundary maps are derived from masks for explicit contour supervision  
 
----
-
 ### ➤ **2️⃣ Image Preprocessing**
 
 To ensure stable CNN training and uniform input size:
@@ -56,8 +54,6 @@ To ensure stable CNN training and uniform input size:
 * Boundary maps generated using edge detection techniques  
 * Enhances subtle texture and edge variations critical for camouflage detection  
 
----
-
 ### ➤ **3️⃣ CNN-Based Feature Extraction (Encoder)**
 
 The encoder extracts hierarchical features through multiple convolutional and pooling layers:
@@ -67,8 +63,6 @@ The encoder extracts hierarchical features through multiple convolutional and po
 * Deep layers → Extract high-level semantic context  
 * Pooling layers → Reduce spatial dimension while preserving salient camouflage cues  
 
----
-
 ### ➤ **4️⃣ Feature Reconstruction (Decoder)**
 
 The decoder restores spatial resolution for pixel-level prediction:
@@ -76,18 +70,14 @@ The decoder restores spatial resolution for pixel-level prediction:
 * Upsampling layers increase feature map size  
 * Convolution layers refine spatial details  
 * Recovers fine object contours lost during pooling  
-* Essential for accurate segmentation and boundary localization  
-
----
-
+* Essential for accurate segmentation and boundary localization
+  
 ### ➤ **5️⃣ Dual Output Heads (Mask & Boundary Prediction)**
 
 * 🟢 **Segmentation Mask Head** → Produces binary mask separating object from background  
 * 🔵 **Boundary Head** → Predicts precise object contours  
 
 This dual-branch supervision enhances contour sharpness and segmentation quality.
-
----
 
 ### ➤ **6️⃣ Loss Computation & Optimization**
 
@@ -98,8 +88,6 @@ During training:
 * Total Loss = Combination of both losses  
 * Optimizer (Adam) used for parameter updates  
 * Backpropagation improves detection and boundary localization performance  
-
----
 
 ### ➤ **7️⃣ Model Validation & Performance Evaluation**
 
