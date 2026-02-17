@@ -99,7 +99,48 @@ After training, the model is evaluated on unseen data:
 
 ---
 
+## 📊 **Output Results & Visualization**
 
+The proposed Dual-Branch Encoder–Decoder CNN successfully detects camouflaged objects and generates precise boundary localization maps, even in complex and low-contrast scenes.
+
+### ➤ **1️⃣ Web Application Interface**
+
+The trained model is deployed as an interactive web-based inference system for real-time visualization.
+
+<p align="center">
+  <img src="images/Output2.png" width="850"
+       style="border: 3px solid #2f80ed; border-radius: 12px; padding: 8px; box-shadow: 0px 4px 14px rgba(0,0,0,0.25);">
+</p>
+
+* Drag-and-drop image upload functionality  
+* Real-time boundary visualization  
+* Clean and user-friendly deployment interface  
+* Supports JPG, PNG, and JPEG formats  
+
+### ➤ **2️⃣ Boundary Localization Output**
+
+The model generates refined boundary overlays highlighting detected camouflaged objects.
+
+<p align="center">
+  <img src="images/Output1.png" width="850"
+       style="border: 3px solid #2f80ed; border-radius: 12px; padding: 8px; box-shadow: 0px 4px 14px rgba(0,0,0,0.25);">
+</p>
+
+* 🔴 Red contours represent predicted object boundaries  
+* Preserves fine structural details  
+* Accurately captures subtle camouflage regions  
+* Maintains robustness across complex backgrounds  
+
+### ➤ **3️⃣ Performance Highlights**
+
+After evaluation on benchmark datasets:
+
+* High Dice Score and IoU values  
+* Improved boundary sharpness compared to single-branch models  
+* Strong generalization across CAMO, COD10K, and NC4K datasets  
+* Reduced background interference  
+
+---
 
 ## 📂 **Datasets Used**
 
@@ -127,6 +168,8 @@ An extended evaluation dataset used to test the **generalization capability** of
 [https://github.com/lartpang/awesome-segmentation-saliency-dataset](https://github.com/lartpang/awesome-segmentation-saliency-dataset)
 *(Refer to the **NC4K** entry)*
 
+---
+
 ## 🛠️ **Technologies Used**
 
 * **Python**
@@ -135,15 +178,6 @@ An extended evaluation dataset used to test the **generalization capability** of
 * **OpenCV**
 * **NumPy**
 * **Matplotlib**
-* **Jupyter Notebook**
-
-## 📊 **Output Results**
-
-The model generates:
-
-* 🟢 **Binary segmentation masks**
-* 🔵 **Boundary localization maps**
-* 🖼️ **Overlay visualizations** highlighting camouflaged objects
 
 ---
 
@@ -159,15 +193,15 @@ The project follows a **well-organized and modular folder structure** to ensure 
 ### 🗂️ **The Folder is Organised into**
 
 * 📂 **images/** → Contains project images, visualizations, and documentation assets  
-* 📂 **mask/** → Stores ground-truth segmentation masks used for training and evaluation  
-* 📄 **train.py** → Script for model training  
-* 📄 **test.py** → Model testing and evaluation  
-* 📄 **model.py** → CNN architecture definition  
-* 📄 **metrics.py** → Performance evaluation metrics (IoU, Dice, etc.)  
-* 📄 **splitdata.py** → Dataset splitting utility  
-* 📄 **makeedges.py** → Boundary map generation logic  
-* 📄 **showboundary2.py** → Boundary visualization module  
-* 📄 **app.py** → Deployment / inference interface  
+* 📂 **masks/** → Stores ground-truth segmentation masks used for training and evaluation  
+* 📄 **train.py** → Trains the CNN using images, masks, and edge supervision and saves the model as codmodel.pth .
+* 📄 **test.py** → Loads the trained model and predicts boundary maps. 
+* 📄 **model.py** → Defines a custom encoder–decoder segmentation network.
+* 📄 **metrics.py** → Computes F-measure, E-measure, IoU, Dice, and MAE.
+* 📄 **splitdata.py** → Splits dataset into 80% training and 20% validation. 
+* 📄 **makeedges.py** → Generates edge maps using Canny edge detection.
+* 📄 **showboundary2.py** → Visualizes boundary overlays.
+* 📄 **app.py** → Deploys the project using Streamlit.
 
 ---
 
@@ -178,6 +212,8 @@ The project follows a **well-organized and modular folder structure** to ensure 
 * 🐾 Wildlife monitoring
 * 🌊 Underwater exploration
 * 🚨 Search and rescue operations
+
+---
 
 ### ⭐ *If you like this project, don’t forget to star the repository!*
 
